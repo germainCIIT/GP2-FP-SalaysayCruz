@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
-    [SerializeField] private Projectile _projectile;
-
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Instantiate(_projectile);
-        }
+        if (!Input.GetMouseButtonDown(0)) return;
+        if (PoolManager.Instance == null) return;
+        var projectile = PoolManager.Instance.GetPooledObject();
+        if (projectile == null) return;
+        projectile.transform.position = this.transform.position;
+        projectile.SetActive(true);
     }
 }

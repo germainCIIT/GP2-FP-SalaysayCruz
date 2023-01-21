@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
 
     private float startTime;
 
-    private void Start()
+    private void OnEnable()
     {
         startTime = Time.time;
     }
@@ -18,7 +18,7 @@ public class Projectile : MonoBehaviour
     {
         if (Time.time - startTime >= _lifetime)
         {
-            Destroy(this.gameObject);
+            ReturnToPool();
         }
     }
 
@@ -34,7 +34,12 @@ public class Projectile : MonoBehaviour
     {
         if (col.collider != null)
         {
-            Destroy(this.gameObject);
+            ReturnToPool();
         }
+    }
+
+    private void ReturnToPool()
+    {
+        this.gameObject.SetActive(false);
     }
 }
