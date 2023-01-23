@@ -13,4 +13,13 @@ public class Shooter : MonoBehaviour
         projectile.transform.position = this.transform.position;
         projectile.SetActive(true);
     }
+
+    public enum Weapon
+    {
+        Empty = 0,
+        AssaultRifle = 1,
+        Shotgun = 2,
+        Pistol = 3,
+        Sniper = 4
+    }
 }
