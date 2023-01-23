@@ -8,6 +8,8 @@ public class SaveManager : MonoBehaviour
 
     private PlayerData _localPlayerData;
 
+    private const string SAVE_DATA_KEY = "PlayerData";
+
     [ContextMenu("Save")]
     private void Save()
     {
